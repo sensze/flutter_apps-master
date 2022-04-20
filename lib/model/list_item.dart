@@ -24,7 +24,7 @@ class ListItem extends StatelessWidget{
             flex: 1,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(7.0),
-              child: Image.asset(place.imageAssets),
+              child: Image.network(place.imageAssets),
             ),
           ),
           Expanded(

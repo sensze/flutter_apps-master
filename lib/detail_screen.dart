@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/model/tourism_place.dart';
 
+import 'edit_screen.dart';
+
 class DetailScreen extends StatelessWidget{
   const DetailScreen({Key? key, required this.place}) : super(key: key);
 
@@ -9,12 +11,29 @@ class DetailScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      appBar: AppBar(title: Text(place.name),
+      actions: <Widget>[
+        IconButton(
+            icon: const Icon(Icons.edit_outlined),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return editScreen(
+                    place: place,
+                  );
+                }),
+              );
+            }
+        ),
+      ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Image.asset(
+              Image.network(
                 place.imageAssets,
                 height: 230,
                 fit: BoxFit.fitWidth,
@@ -99,21 +118,21 @@ class DetailScreen extends StatelessWidget{
                         padding: const EdgeInsets.all(4.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(place.image2),
+                          child: Image.network(place.image2),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(place.image3),
+                          child: Image.network(place.image3),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(place.image4),
+                          child: Image.network(place.image4),
                         ),
                       ),
                     ],

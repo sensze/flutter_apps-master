@@ -34,7 +34,7 @@ class DoneTourismList extends StatelessWidget{
                     borderRadius: BorderRadius.circular(7.0),
                     child: Image(
                       image: place.imageAssets != ''
-                          ? AssetImage(place.imageAssets) as ImageProvider
+                          ? NetworkImage(place.imageAssets) as ImageProvider
                           : NetworkImage(place.image1),
                       fit: BoxFit.cover,
                       height: 120,

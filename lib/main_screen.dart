@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/model/tourism_list.dart';
 import 'package:flutter_apps/model/done_tourism_list.dart';
+import 'package:flutter_apps/add_screen.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -26,10 +27,21 @@ class _MainScreenState extends State<MainScreen>{
                 }),
               );
             },
-          )
+          ),
         ],
       ),
       body: TourismList(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context){
+              return Create();
+            }),
+          );
+        },
+      ),
     );
   }
 }

@@ -10,24 +10,24 @@ String tourismResultToJson(TourismResult data) => json.encode(data.toJson());
 
 class TourismResult {
   TourismResult({
-    required this.pesan,
-    required this.sukses,
+    required this.status,
+    required this.totalResults,
     required this.tourismPlaceList,
   });
 
-  String pesan;
-  bool sukses;
+  String status;
+  int totalResults;
   List<TourismPlace> tourismPlaceList;
 
   factory TourismResult.fromJson(Map<String, dynamic> json) => TourismResult(
-    pesan: json["pesan"],
-    sukses: json["sukses"],
+    status: json["status"],
+    totalResults: json["totalResults"],
     tourismPlaceList: List<TourismPlace>.from(json["tourismPlaceList"].map((x) => TourismPlace.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
-    "pesan": pesan,
-    "sukses": sukses,
+    "status": status,
+    "totalResults": totalResults,
     "tourismPlaceList": List<dynamic>.from(tourismPlaceList.map((x) => x.toJson())),
   };
 }
